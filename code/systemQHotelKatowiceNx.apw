@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Workspace [
+
+<!-- Common Elements -->
+<!ELEMENT Identifier (#PCDATA)>
+<!ELEMENT Comments (#PCDATA)>
+<!ELEMENT MasterDirectory (#PCDATA)>
+<!ELEMENT CreationDate (#PCDATA)>
+
+<!-- Workspace Elements-->
+<!ELEMENT Workspace ( Identifier,
+               CreateVersion,
+               PJS_File?,
+               PJS_ConvertDate?,
+               PJS_CreateDate?,
+               Comments?,
+               Project*)>
+
+<!ATTLIST Workspace 
+      CurrentVersion CDATA   #REQUIRED> 
+
+<!ELEMENT CreateVersion     (#PCDATA)>
+
+
+<!-- Conversion data only: only included for files converted from the old .pjs database -->
+<!ELEMENT PJS_File (#PCDATA)>
+<!ELEMENT PJS_ConvertDate (#PCDATA)>
+<!ELEMENT PJS_CreateDate (#PCDATA)>
+
+<!ELEMENT Project ( Identifier,
+               Designer?,
+               DealerID?,
+               SalesOrder?,
+               PurchaseOrder?,
+               Comments?,
+               System*)>
+
+<!ELEMENT Designer (#PCDATA)>
+<!ELEMENT DealerID (#PCDATA)>
+<!ELEMENT SalesOrder (#PCDATA)>
+<!ELEMENT PurchaseOrder (#PCDATA)>
+
+
+<!ELEMENT System  (  Identifier,
+                 SysID,
+                 TransTCPIP?,
+                 TransSerial?,
+                 TransTCPIPEx?,
+                 TransSerialEx?,
+                 TransUSBEx?,
+                 TransVNMEx?,
+                 VirtualNetLinxMasterFlag?,
+                 VNMSystemID?,
+                 VNMIPAddress?,
+                 VNMMaskAddress?,
+                 UserName?,
+                 Password?,
+                 Comments?,
+                 File*)>
+
+<!ATTLIST System
+      IsActive   (true | false)   "false"
+      Platform   (Axcess | Netlinx)   "Axcess"
+      Transport   (Serial | Modem | TCPIP) "Serial"
+      TransportEx   (Serial | USB | TCPIP | VNM) "Serial">
+
+<!ELEMENT SysID (#PCDATA)>
+<!ELEMENT TransSerial (#PCDATA)>
+<!ELEMENT TransTCPIP (#PCDATA)>
+<!ELEMENT TransTCPIPEx (#PCDATA)>
+<!ELEMENT TransSerialEx (#PCDATA)>
+<!ELEMENT TransUSBEx (#PCDATA)>
+<!ELEMENT TransVNMEx (#PCDATA)>
+<!ELEMENT VNMSystemID (#PCDATA)>
+<!ELEMENT VNMIPAddress (#PCDATA)>
+<!ELEMENT VNMMaskAddress (#PCDATA)>
+<!ELEMENT VirtualNetLinxMasterFlag (#PCDATA)>
+<!ELEMENT UserName (#PCDATA)>
+<!ELEMENT Password (#PCDATA)>
+
+
+<!ELEMENT File ( Identifier,
+               FilePathName,
+               Comments?,
+               MasterDirectory?,
+               DeviceMap*,
+               IRDB*)>
+
+<!ATTLIST File 
+       Type (Source | MasterSrc | Include | Module | AXB | IR | TPD | TP4 | TP5 | KPD | TKO | AMX_IR_DB | IRN_DB | Other | DUET | TOK | TKN | KPB | XDD ) "Other"
+       CompileType (Axcess | Netlinx | None) "None"> 
+
+<!ELEMENT FilePathName	(#PCDATA)>
+                            
+<!ELEMENT DeviceMap (DevName)>
+       <!ATTLIST DeviceMap DevAddr CDATA #REQUIRED>
+
+       <!ELEMENT DevName (#PCDATA)>
+
+<!ELEMENT IRDB    (Property,
+                 DOSName,
+                 UserDBPathName,
+                 Notes)>
+       <!ATTLIST IRDB DBKey CDATA #REQUIRED>
+
+       <!ELEMENT Property (#PCDATA)>
+       <!ELEMENT DOSName (#PCDATA)>
+       <!ELEMENT UserDBPathName (#PCDATA)>
+       <!ELEMENT Notes (#PCDATA)>
+]>
+
+<Workspace CurrentVersion="4.0"><Identifier>Katowice</Identifier>
+<CreateVersion>3.3</CreateVersion>
+<PJS_File></PJS_File>
+<PJS_ConvertDate></PJS_ConvertDate>
+<PJS_CreateDate></PJS_CreateDate>
+<Comments></Comments>
+<Project><Identifier>Q Hotel</Identifier>
+<Designer></Designer>
+<DealerID></DealerID>
+<SalesOrder></SalesOrder>
+<PurchaseOrder></PurchaseOrder>
+<Comments></Comments>
+<System IsActive="true" Platform="Netlinx" Transport="TCPIP" TransportEx="TCPIP"><Identifier>masterNX</Identifier>
+<SysID>0</SysID>
+<TransTCPIP>10.20.26.10:1319:1:Orlen_sala436:administrator:h24Df84dce</TransTCPIP>
+<TransSerial>COM1,38400,8,None,1,None</TransSerial>
+<TransTCPIPEx>10.1.66.11|1319|1|hotelQKatowice|YWRtaW5pc3RyYXRvcg|cGFzc3dvcmQ</TransTCPIPEx>
+<TransSerialEx>COM1|38400|8|None|1|None|YWRtaW5pc3RyYXRvcg|aDI0RGY4NGRjZQ</TransSerialEx>
+<TransUSBEx>|||||</TransUSBEx>
+<TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
+<VirtualNetLinxMasterFlag>false</VirtualNetLinxMasterFlag>
+<VNMSystemID>1</VNMSystemID>
+<VNMIPAddress>10.0.0.1</VNMIPAddress>
+<VNMMaskAddress>255.255.255.0</VNMMaskAddress>
+<UserName></UserName>
+<Password></Password>
+<Comments></Comments>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelConstantDefinitions</Identifier>
+<FilePathName>includes\qHotelConstantDefinitions.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelDeviceDefinitions</Identifier>
+<FilePathName>includes\qHotelDeviceDefinitions.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelStructureDefinitions</Identifier>
+<FilePathName>includes\qHotelStructureDefinitions.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelVariableDefinitions</Identifier>
+<FilePathName>includes\qHotelVariableDefinitions.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="IR"><Identifier>Ferguson,T,RCU660,DVBT,1</Identifier>
+<FilePathName>irFiles\Ferguson,T,RCU660,DVBT,1.irl</FilePathName>
+<Comments></Comments>
+<DeviceMap DevAddr="dvTunerFrappe"><DevName>dvTunerFrappe</DevName>
+</DeviceMap>
+<DeviceMap DevAddr="dvTunerMocca"><DevName>dvTunerMocca</DevName>
+</DeviceMap>
+</File>
+<File CompileType="Netlinx" Type="MasterSrc"><Identifier>mainlineQHotelKatowiceNx</Identifier>
+<FilePathName>mainlineQHotelKatowiceNx.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="TKO"><Identifier>DBX_ZonePro_COMM</Identifier>
+<FilePathName>modulesDuet\DBX_ZonePro_COMM.tko</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>Eiki_EK305U_Comm_nl1_0_0</Identifier>
+<FilePathName>modulesNetlinx\Eiki_EK305U_Comm_nl1_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>FutureNow_FNIP_Comm_nl1_0_0</Identifier>
+<FilePathName>modulesNetlinx\FutureNow_FNIP_Comm_nl1_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>Helvar_P905_Comm_nl1_0_0</Identifier>
+<FilePathName>modulesNetlinx\Helvar_P905_Comm_nl1_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>Kramer_VP440_Comm_nl1_0_0</Identifier>
+<FilePathName>modulesNetlinx\Kramer_VP440_Comm_nl1_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>switcherAudioHotelQ</Identifier>
+<FilePathName>modulesSwitcher\switcherAudioHotelQ.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>switcherVideoHotelQ</Identifier>
+<FilePathName>modulesSwitcher\switcherVideoHotelQ.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelPanelAudio</Identifier>
+<FilePathName>modulesUi\qHotelPanelAudio.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelPanelLight</Identifier>
+<FilePathName>modulesUi\qHotelPanelLight.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelPanelMain</Identifier>
+<FilePathName>modulesUi\qHotelPanelMain.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelPanelPresentation</Identifier>
+<FilePathName>modulesUi\qHotelPanelPresentation.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>qHotelPanelTuner</Identifier>
+<FilePathName>modulesUi\qHotelPanelTuner.axi</FilePathName>
+<Comments></Comments>
+</File>
+</System>
+</Project>
+</Workspace>
